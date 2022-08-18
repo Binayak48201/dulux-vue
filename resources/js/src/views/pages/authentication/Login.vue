@@ -103,9 +103,9 @@
               <b-form-group>
                 <div class="d-flex justify-content-between">
                   <label for="login-password">Password</label>
-                  <b-link :to="{name:'auth-forgot-password'}">
-                    <small>Forgot Password?</small>
-                  </b-link>
+                  <!--                  <b-link :to="{name:'auth-forgot-password'}">-->
+                  <!--                    <small>Forgot Password?</small>-->
+                  <!--                  </b-link>-->
                 </div>
                 <validation-provider
                   #default="{ errors }"
@@ -250,11 +250,30 @@ export default {
     login() {
       this.$refs.loginForm.validate().then(success => {
         if (success) {
-          this.$store.dispatch('login', {
-            email: this.userEmail,
-            password: this.password,
-          })
-          const user = JSON.parse(localStorage.getItem('user'))
+          try {
+            this.$store.dispatch('login', {
+              email: this.userEmail,
+              password: this.password,
+            })
+            // const user = JSON.parse(localStorage.getItem('user'))
+            this.$router.replace('/dashboard')
+            // this.$router.replace(getHomeRouteForLoggedInUser(user)).then(() => {
+            //   this.$toast({
+            //     component: ToastificationContent,
+            //     position: 'top-right',
+            //     props: {
+            //       title: 'Welcome',
+            //       icon: 'CoffeeIcon',
+            //       variant: 'success',
+            //       text: 'You have successfully logged in as. Now you can start to explore!',
+            //     },
+            //   })
+            // })
+          } catch (error) {
+            console.log(error.response)
+            this.errorMessage = error.response.data.data.message
+            // this.flashMessage(this.errorMessage, 'error')
+          }
           // useJwt
           //   .login({
           //     email: this.userEmail,

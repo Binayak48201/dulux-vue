@@ -7,24 +7,24 @@
     <template #button-content>
       <div class="d-sm-flex d-none user-nav">
         <p class="user-name font-weight-bolder mb-0">
-          {{ userData.fullName || userData.username }}
+          <!--          {{ userData.fullName || userData.username }}-->
         </p>
-        <span class="user-status">{{ userData.role }}</span>
+        <!--        <span class="user-status">{{ userData.role }}</span>-->
       </div>
-      <b-avatar
-        size="40"
-        :src="userData.avatar"
-        variant="light-primary"
-        badge
-        class="badge-minimal"
-        badge-variant="success"
-      >
-        <feather-icon
-          v-if="!userData.fullName"
-          icon="UserIcon"
-          size="22"
-        />
-      </b-avatar>
+      <!--      <b-avatar-->
+      <!--        size="40"-->
+      <!--        :src="userData.avatar"-->
+      <!--        variant="light-primary"-->
+      <!--        badge-->
+      <!--        class="badge-minimal"-->
+      <!--        badge-variant="success"-->
+      <!--      >-->
+      <!--        <feather-icon-->
+      <!--          v-if="!userData.fullName"-->
+      <!--          icon="UserIcon"-->
+      <!--          size="22"-->
+      <!--        />-->
+      <!--      </b-avatar>-->
     </template>
 
     <b-dropdown-item
